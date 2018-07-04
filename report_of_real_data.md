@@ -33,7 +33,7 @@
 
 ### 第一部分.红黄警的数据
 
-* （1）.AlarmDefinitions e411.xlsx
+### （1）.AlarmDefinitions e411.xlsx
 
 * 包含特征如下：
 
@@ -43,7 +43,7 @@ EventCode = 事件编号 ; ModuleTypeID = 模型型号 ; ; ModuleTypeName = 模�
 
 该数据是”警报定义“有关的数据，针对一个警报得到的数据。
 
-* （2）.AlarmSample -e601 one module.xlsx
+### （2）.AlarmSample -e601 one module.xlsx
 
 * 包含特征如下：
 
@@ -55,7 +55,7 @@ DimTimeID = 另一种时间序号 ; alarmCode+alarmsubCode = 报警种类编号�
 
 该数据是针对”某一种报警“的统计。
 
-* （3）.BL_E411Alarm_15D1-21.xlsx
+### （3）.BL_E411Alarm_15D1-21.xlsx
 
 * 包含特征如下：
 
@@ -70,7 +70,7 @@ Id = 种类 ; DeviceID = 设备编号 ; InstrumentID = 仪器编号 ; Module ID 
 此外，这张表中出现的特征基本都能关联到前两张表的数据之中。
 
 
-* （4）.BL_E411Alarm_64D4-25.xlsx
+### （4）.BL_E411Alarm_64D4-25.xlsx
 
 * 总结：
 这张表格与上一张表的特征相同，
@@ -78,7 +78,7 @@ Id = 种类 ; DeviceID = 设备编号 ; InstrumentID = 仪器编号 ; Module ID 
 对比这两张表格，得知这两张表格分别是两个不同警报的总结。
 
 
-* （5）.CriticalAlarms c6k_e601.xlsx
+###  （5）.CriticalAlarms c6k_e601.xlsx
 
 * ComponentID 包含特征如下：
 
@@ -106,7 +106,7 @@ Id = 种类 ; DeviceID = 设备编号 ; InstrumentID = 仪器编号 ; Module ID 
 ModuleTypeID ; SubComponentID ; Notification ; CountDay ; Frequency ; AlarmCode ;
 Alarm Type ; Alarm No ; Alarm Message ; AlarmDesc ; AlarmRemedy = 警报诊断 ; Alarm Severity = 警报严重程度 ; Critical Level = 严重等级
 
-* （6）.EventCodeID.txt
+###  （6）.EventCodeID.txt
 
 
 * 包含特征如下：
@@ -122,7 +122,7 @@ EventCode2ID = 事件code与ID的相关性 ; ModuleTypeID ; ModuleTypeName ; Sys
 
 
 
-* （7）.MappingAlgorithms.docx
+###  （7）.MappingAlgorithms.docx
 
 * 包含特征如下
 Mapping particularities = 映射特殊性 ; System class = 系统 ; Scheme Name = 方案名 ;
@@ -146,7 +146,7 @@ RIGM之中，我们有两种情况:
 这张表很重要，但是我并不是很理解为什么需要将Alarm映射到一个Module e601?
 
 ### 第二部分.设备维护的数据：
-* （1）.Parts Detail crosstab.csv
+###  （1）.Parts Detail crosstab.csv
 
 * 包含特征如下：
 CaseCustomerNumber: 用户情况编号 ; 客户 ; CaseCustomerPrimaryState =用户来自哪里 ; 
@@ -155,7 +155,7 @@ ServiceActivityNumber = 机器提供服务编号 ; SAStatus = 最终状态 ; SAC
 * 总结：
 这张表给出的信息很细碎，然后最重要的一列是故障笔记。InvoiceNotes. 推测整张表是故障发生时采集到的各种数据。
 
-* （2）.Service_Activity_Details_crosstab(2).csv
+###  （2）.Service_Activity_Details_crosstab(2).csv
 
 * 包含特征如下：
 
@@ -173,13 +173,13 @@ InvoiceNotes =记录信息 ;
 * 总结：
 这张表和第一张表的信息大部分重合，这张表补充的有维修所用的一些时间还有机器记录的最后时间。
 
-* （3）.Active Instrument List 2018.06.08.xlsx 
+###  （3）.Active Instrument List 2018.06.08.xlsx 
 
 * 未能拿到（❌）
 
 
 # 问题回答：
-* 1、红黄警分析：
+###  1、红黄警分析：
 
 * 问：c6k/c8k的红黄警数据；code代号与红黄警名称的mapping关系；选择哪两个红警code进行后续的分析。 E411的code代号与红黄警名称的mapping关系；选择哪一个红警code进行后续分析。
 
@@ -190,7 +190,7 @@ InvoiceNotes =记录信息 ;
 但我没有区别开哪些是属于黄色警报。[?]
 
 
-* 2、设备预测性维护，关于c6k/c8k一个模块的以下六大类数据
+### 2、设备预测性维护，关于c6k/c8k一个模块的以下六大类数据
 
 * 问： 是否满足六大类别？
 
