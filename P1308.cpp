@@ -24,7 +24,13 @@ int main(){
 	for (int i = 0; i< b.length();i++){
 		b[i] = tolower(b[i]);
 	}
-	a=' '+a;
+	int m = a.length()-1;
+	if (a[m]==' ')
+	{	a=' '+a;
+	}
+	else{
+		a=' '+a+' ';
+	}
     b=' '+b+' ';
 	if (b.find(a) == string::npos){
 		cout<<-1<<endl;
