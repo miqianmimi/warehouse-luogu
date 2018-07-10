@@ -23,22 +23,32 @@ int main(void){
 	int demo = -1;
 	int i = 0 ; int j = 0;
 	data = ' '+ data+' ';
-	key = ' ' + key;
+	int l = key.length()-1;
+	if (key[l]==' '){
+		key = ' ' + key ;
+	}
+	else{
+		key = ' '+ key + ' ';
+	}
 	while(data[i] != '\0')
 	{
 		if(flag == 0){
 			demo = i;
 		}
 		while(data[i] == key[j]){
-			i++;
-			j++;
-			if(key[j+1] == ' ' && (data[i+1] == ' ' || data[i+1] == '\0')){
+			if(j == key.length()-1 ){
 				flag++;
 				break;
 			}
+			i++;
+			j++;
+		}
+		if (data[i] == ' '){
+		}
+		else{
+			i ++ ;
 		}
 		j = 0;
-		i ++ ;
 	}
 	if (flag != 0){
 		cout<<flag<<" "<<demo<<"\n";
