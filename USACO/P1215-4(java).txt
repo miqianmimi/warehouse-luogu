@@ -1,0 +1,103 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+
+public class Test {
+	public static void main(String[] args) {
+		int A = 2;
+		int B = 5;
+		int C = 10;
+		List<Integer> res = new ArrayList<Integer>();
+		List<int[]> temp = new ArrayList<int[]>();
+		temp.add(new int[]{0, 0, C});
+		backtracking(temp, res, A, B, C);
+		int[] result = removeDuplicates(res);
+		for (Integer i: result)
+			System.out.println(i);
+	}
+	
+	private static void backtracking(List<int[]> temp, List<Integer> res, int A, int B, int C){
+		if (temp.get(temp.size() - 1)[0] == 0)
+			res.add(temp.get(temp.size() - 1)[2]);
+		if (containsTwice(temp))
+			return;
+		int[] current = temp.get(temp.size() - 1);
+		int a = current[0];
+		int b = current[1];
+		int c = current[2];
+		if (a < A && b > 0){
+			int[] result = pourAtoB(b, a, B, A);
+			int[] newCurrent = new int[]{result[1], result[0], c};
+			temp.add(newCurrent);
+			backtracking(temp, res, A, B, C);
+			temp.remove(temp.size() - 1);
+		}
+		if (b < B && a > 0){
+			int[] result = pourAtoB(a, b, A, B);
+			int[] newCurrent = new int[]{result[0], result[1], c};
+			temp.add(newCurrent);
+			backtracking(temp, res, A, B, C);
+			temp.remove(temp.size() - 1);
+		}
+		if (a < A && c > 0){
+			int[] result = pourAtoB(c, a, C, A);
+			int[] newCurrent = new int[]{result[1], b, result[0]};
+			temp.add(newCurrent);
+			backtracking(temp, res, A, B, C);
+			temp.remove(temp.size() - 1);
+		}
+		if (c < C && a > 0){
+			int[] result = pourAtoB(a, c, A, C);
+			int[] newCurrent = new int[]{result[0], b, result[1]};
+			temp.add(newCurrent);
+			backtracking(temp, res, A, B, C);
+			temp.remove(temp.size() - 1);
+		}
+		if (b < B && c > 0){
+			int[] result = pourAtoB(c, b, C, B);
+			int[] newCurrent = new int[]{a, result[1], result[0]};
+			temp.add(newCurrent);
+			backtracking(temp, res, A, B, C);
+			temp.remove(temp.size() - 1);
+		}
+		if (c < C && b > 0){
+			int[] result = pourAtoB(b, c, B, C);
+			int[] newCurrent = new int[]{a, result[0], result[1]};
+			temp.add(newCurrent);
+			backtracking(temp, res, A, B, C);
+			temp.remove(temp.size() - 1);
+		}
+	}
+	
+	private static boolean containsTwice(List<int[]> list){
+		for (int i = 0; i < list.size() - 1; i ++)
+			if (Arrays.equals(list.get(i), list.get(list.size() - 1)))
+				return true;
+		return false;
+	}
+	
+	private static int[] pourAtoB(int a, int b, int A, int B){
+		int newb = Math.min(B, a + b);
+		int move = newb - b;
+		int newa = a - move;
+		return new int[]{newa, newb};
+	}
+	
+	private static int[] removeDuplicates(List<Integer> list){
+		Collections.sort(list);
+		List<Integer> res = new ArrayList<Integer>();
+		for (int i = 0; i < list.size(); i ++){
+			if (i == 0 || list.get(i) != list.get(i - 1))
+				res.add(list.get(i));
+		}
+		int[] result = new int[res.size()];
+		for (int i = 0; i < res.size(); i ++)
+			result[i] = res.get(i);
+		return result;
+	}
+}
+	
+	
+	
